@@ -7,3 +7,39 @@
 // (R0, R1, R2 refer to RAM[0], RAM[1], and RAM[2], respectively.)
 
 // Put your code here.
+
+// initialize R2 to 0
+@R2
+M=0
+
+// skip if R0 is 0
+@R0
+D=M
+@END
+D;JEQ
+
+// skip if R1 is 0
+@R1
+D=M
+@END
+D;JEQ
+
+// initialize i to R0
+@R0
+D=M
+@i
+M=D
+
+// add loop
+(MULT)
+@R1
+D=M
+@R2
+M=M+D
+@i
+M=M-1
+D=M
+@MULT
+D;JGT
+
+(END)
